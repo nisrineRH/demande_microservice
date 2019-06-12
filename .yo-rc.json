@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.demande.open",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "microservice",
+    "baseName": "DemandeMicroService",
+    "packageName": "com.demande.open",
+    "packageFolder": "com/demande/open",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MjVmMDFmMzkxM2M5YWZhZTI3ZjJjY2I1MTI0OTUzY2NiMzQwYTI2Y2RiNzBiOGIyYWFjZTMzMDlhYzAyNGQ5NDdkNzU3ODE2MjE2MTlmOTkwNTdhZmU1YTc2ODM1NmZkZmQ0NzY4Njg2ZmRjZGUyMmZhM2RiNzBhZDE3Yjg3YWU=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr"
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
