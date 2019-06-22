@@ -19,6 +19,13 @@
             "useJPADerivedIdentifier": false,
             "otherEntityRelationshipName": "demande",
             "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipName": "demande_document",
+            "otherEntityName": "demande_document",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "demande",
+            "otherEntityRelationshipNameUndefined": false
         }
     ],
     "fields": [

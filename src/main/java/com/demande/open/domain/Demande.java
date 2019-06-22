@@ -1,12 +1,15 @@
 package com.demande.open.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -58,6 +61,8 @@ public class Demande implements Serializable {
     @JoinColumn(unique = true)
     private HistouriqueStatutDemande histouriqueStatutDemande;
 
+    @OneToMany(mappedBy = "demande")
+    private Set<Demande_document> demande_documents = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -208,6 +213,31 @@ public class Demande implements Serializable {
 
     public void setHistouriqueStatutDemande(HistouriqueStatutDemande histouriqueStatutDemande) {
         this.histouriqueStatutDemande = histouriqueStatutDemande;
+    }
+
+    public Set<Demande_document> getDemande_documents() {
+        return demande_documents;
+    }
+
+    public Demande demande_documents(Set<Demande_document> demande_documents) {
+        this.demande_documents = demande_documents;
+        return this;
+    }
+
+    public Demande addDemande_document(Demande_document demande_document) {
+        this.demande_documents.add(demande_document);
+        demande_document.setDemande(this);
+        return this;
+    }
+
+    public Demande removeDemande_document(Demande_document demande_document) {
+        this.demande_documents.remove(demande_document);
+        demande_document.setDemande(null);
+        return this;
+    }
+
+    public void setDemande_documents(Set<Demande_document> demande_documents) {
+        this.demande_documents = demande_documents;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

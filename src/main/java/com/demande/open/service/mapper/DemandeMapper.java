@@ -17,6 +17,7 @@ public interface DemandeMapper extends EntityMapper<DemandeDTO, Demande> {
 
     @Mapping(source = "clientId", target = "client")
     @Mapping(source = "histouriqueStatutDemandeId", target = "histouriqueStatutDemande")
+    @Mapping(target = "demande_documents", ignore = true)
     Demande toEntity(DemandeDTO demandeDTO);
 
     default Demande fromId(Long id) {

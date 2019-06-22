@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "DemandeMicroService",
+    "relationships": [
+        {
+            "relationshipName": "demande",
+            "otherEntityName": "demande",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dm_doc_libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dm_doc_type",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190622143411",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "demande_document",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "DemandeMicroService"
+}
