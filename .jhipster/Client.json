@@ -1,7 +1,15 @@
 {
     "fluentMethods": true,
     "clientRootFolder": "DemandeMicroService",
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "demande",
+            "otherEntityName": "demande",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "client",
+            "otherEntityRelationshipNameUndefined": false
+        }
+    ],
     "fields": [
         {
             "fieldName": "client_nom",

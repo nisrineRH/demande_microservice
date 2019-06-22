@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "DemandeMicroService",
+    "relationships": [
+        {
+            "relationshipName": "demande",
+            "otherEntityName": "demande",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "histouriqueStatutDemande"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "userModification",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "msgMail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "desinataireDuMail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dm_statut",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190622135812",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "histourique_statut_demande",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "DemandeMicroService"
+}

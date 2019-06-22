@@ -1,6 +1,7 @@
 package com.demande.open.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -48,6 +49,14 @@ public class Demande implements Serializable {
 
     @Column(name = "date_livraison_souhaitee")
     private LocalDate dateLivraisonSouhaitee;
+
+    @ManyToOne
+    @JsonIgnoreProperties("demandes")
+    private Client client;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private HistouriqueStatutDemande histouriqueStatutDemande;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -173,6 +182,32 @@ public class Demande implements Serializable {
 
     public void setDateLivraisonSouhaitee(LocalDate dateLivraisonSouhaitee) {
         this.dateLivraisonSouhaitee = dateLivraisonSouhaitee;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Demande client(Client client) {
+        this.client = client;
+        return this;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public HistouriqueStatutDemande getHistouriqueStatutDemande() {
+        return histouriqueStatutDemande;
+    }
+
+    public Demande histouriqueStatutDemande(HistouriqueStatutDemande histouriqueStatutDemande) {
+        this.histouriqueStatutDemande = histouriqueStatutDemande;
+        return this;
+    }
+
+    public void setHistouriqueStatutDemande(HistouriqueStatutDemande histouriqueStatutDemande) {
+        this.histouriqueStatutDemande = histouriqueStatutDemande;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

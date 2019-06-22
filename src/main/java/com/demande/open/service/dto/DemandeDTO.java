@@ -29,6 +29,10 @@ public class DemandeDTO implements Serializable {
     private LocalDate dateLivraisonSouhaitee;
 
 
+    private Long clientId;
+
+    private Long histouriqueStatutDemandeId;
+
     public Long getId() {
         return id;
     }
@@ -109,6 +113,22 @@ public class DemandeDTO implements Serializable {
         this.dateLivraisonSouhaitee = dateLivraisonSouhaitee;
     }
 
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
+
+    public Long getHistouriqueStatutDemandeId() {
+        return histouriqueStatutDemandeId;
+    }
+
+    public void setHistouriqueStatutDemandeId(Long histouriqueStatutDemandeId) {
+        this.histouriqueStatutDemandeId = histouriqueStatutDemandeId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -143,6 +163,8 @@ public class DemandeDTO implements Serializable {
             ", description='" + getDescription() + "'" +
             ", visibleSurInternet='" + isVisibleSurInternet() + "'" +
             ", dateLivraisonSouhaitee='" + getDateLivraisonSouhaitee() + "'" +
+            ", client=" + getClientId() +
+            ", histouriqueStatutDemande=" + getHistouriqueStatutDemandeId() +
             "}";
     }
 }

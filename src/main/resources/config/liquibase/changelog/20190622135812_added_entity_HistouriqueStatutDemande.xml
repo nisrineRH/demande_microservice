@@ -14,55 +14,29 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Demande.
+        Added the entity HistouriqueStatutDemande.
     -->
-    <changeSet id="20190622131126-1" author="jhipster">
-        <createTable tableName="demande">
+    <changeSet id="20190622135812-1" author="jhipster">
+        <createTable tableName="histourique_statut_demande">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="dm_numero" type="integer">
+            <column name="user_modification" type="date">
                 <constraints nullable="true" />
             </column>
 
-            <column name="dm_libelle" type="varchar(255)">
+            <column name="msg_mail" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="dm_statu" type="varchar(255)">
+            <column name="desinataire_du_mail" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="dm_type" type="varchar(255)">
+            <column name="dm_statut" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="dm_priorite" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="intervenant" type="integer">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="description" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="visible_sur_internet" type="boolean">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="date_livraison_souhaitee" type="date">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="client_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="histourique_statut_demande_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_demande_histourique_statut_demande_id" />
-            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

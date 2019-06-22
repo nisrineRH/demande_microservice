@@ -1,7 +1,26 @@
 {
     "fluentMethods": true,
     "clientRootFolder": "DemandeMicroService",
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "demande",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipName": "histouriqueStatutDemande",
+            "otherEntityName": "histouriqueStatutDemande",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "useJPADerivedIdentifier": false,
+            "otherEntityRelationshipName": "demande",
+            "otherEntityRelationshipNameUndefined": false
+        }
+    ],
     "fields": [
         {
             "fieldName": "dm_numero",

@@ -12,6 +12,8 @@ import org.mapstruct.*;
 public interface ClientMapper extends EntityMapper<ClientDTO, Client> {
 
 
+    @Mapping(target = "demandes", ignore = true)
+    Client toEntity(ClientDTO clientDTO);
 
     default Client fromId(Long id) {
         if (id == null) {
