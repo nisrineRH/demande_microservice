@@ -1,0 +1,52 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "DemandeMicroService",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "dm_numero",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dm_libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dm_statu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dm_type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dm_priorite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intervenant",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "visibleSurInternet",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dateLivraisonSouhaitee",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20190622131126",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "demande",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "DemandeMicroService"
+}
