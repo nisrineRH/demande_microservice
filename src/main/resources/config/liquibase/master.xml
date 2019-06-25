@@ -9,8 +9,11 @@
     <include file="config/liquibase/changelog/20190622131126_added_entity_Demande.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190622135812_added_entity_HistouriqueStatutDemande.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190622143411_added_entity_Demande_document.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190625220706_added_entity_Client_document.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190625221403_added_entity_Category_document.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20190622131126_added_entity_constraints_Demande.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190622143411_added_entity_constraints_Demande_document.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190625220706_added_entity_constraints_Client_document.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

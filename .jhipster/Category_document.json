@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "DemandeMicroService",
+    "relationships": [
+        {
+            "relationshipName": "client_document",
+            "otherEntityName": "client_document",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "category_document"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "cat_numero",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cat_nom",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190625221403",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "category_document",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "DemandeMicroService"
+}

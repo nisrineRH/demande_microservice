@@ -13,6 +13,7 @@ public interface ClientMapper extends EntityMapper<ClientDTO, Client> {
 
 
     @Mapping(target = "demandes", ignore = true)
+    @Mapping(target = "client_documents", ignore = true)
     Client toEntity(ClientDTO clientDTO);
 
     default Client fromId(Long id) {

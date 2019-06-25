@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "DemandeMicroService",
+    "relationships": [
+        {
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "client_document",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipName": "category_document",
+            "otherEntityName": "category_document",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "client_document",
+            "otherEntityRelationshipNameUndefined": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "doc_chemin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doc_libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doc_date",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20190625220706",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "client_document",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "DemandeMicroService"
+}

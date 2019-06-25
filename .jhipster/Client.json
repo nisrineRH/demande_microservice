@@ -8,6 +8,13 @@
             "relationshipType": "one-to-many",
             "otherEntityRelationshipName": "client",
             "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipName": "client_document",
+            "otherEntityName": "client_document",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "client",
+            "otherEntityRelationshipNameUndefined": false
         }
     ],
     "fields": [
