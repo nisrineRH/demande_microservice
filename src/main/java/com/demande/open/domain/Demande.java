@@ -42,7 +42,7 @@ public class Demande implements Serializable {
     private String dm_priorite;
 
     @Column(name = "intervenant")
-    private Integer intervenant;
+    private String intervenant;
 
     @Column(name = "description")
     private String description;
@@ -140,16 +140,16 @@ public class Demande implements Serializable {
         this.dm_priorite = dm_priorite;
     }
 
-    public Integer getIntervenant() {
+    public String getIntervenant() {
         return intervenant;
     }
 
-    public Demande intervenant(Integer intervenant) {
+    public Demande intervenant(String intervenant) {
         this.intervenant = intervenant;
         return this;
     }
 
-    public void setIntervenant(Integer intervenant) {
+    public void setIntervenant(String intervenant) {
         this.intervenant = intervenant;
     }
 
@@ -286,7 +286,7 @@ public class Demande implements Serializable {
             ", dm_statu='" + getDm_statu() + "'" +
             ", dm_type='" + getDm_type() + "'" +
             ", dm_priorite='" + getDm_priorite() + "'" +
-            ", intervenant=" + getIntervenant() +
+            ", intervenant='" + getIntervenant() + "'" +
             ", description='" + getDescription() + "'" +
             ", visibleSurInternet='" + isVisibleSurInternet() + "'" +
             ", dateLivraisonSouhaitee='" + getDateLivraisonSouhaitee() + "'" +

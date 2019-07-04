@@ -41,7 +41,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="intervenant" type="integer">
+            <column name="intervenant" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 

@@ -25,6 +25,10 @@
         {
             "fieldName": "client_numero",
             "fieldType": "Integer"
+        },
+        {
+            "fieldName": "faitSaMiseEnProduction",
+            "fieldType": "Boolean"
         }
     ],
     "changelogDate": "20190622130748",

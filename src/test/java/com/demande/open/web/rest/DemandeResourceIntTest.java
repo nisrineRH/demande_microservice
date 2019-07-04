@@ -60,8 +60,8 @@ public class DemandeResourceIntTest {
     private static final String DEFAULT_DM_PRIORITE = "AAAAAAAAAA";
     private static final String UPDATED_DM_PRIORITE = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_INTERVENANT = 1;
-    private static final Integer UPDATED_INTERVENANT = 2;
+    private static final String DEFAULT_INTERVENANT = "AAAAAAAAAA";
+    private static final String UPDATED_INTERVENANT = "BBBBBBBBBB";
 
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
@@ -205,7 +205,7 @@ public class DemandeResourceIntTest {
             .andExpect(jsonPath("$.[*].dm_statu").value(hasItem(DEFAULT_DM_STATU.toString())))
             .andExpect(jsonPath("$.[*].dm_type").value(hasItem(DEFAULT_DM_TYPE.toString())))
             .andExpect(jsonPath("$.[*].dm_priorite").value(hasItem(DEFAULT_DM_PRIORITE.toString())))
-            .andExpect(jsonPath("$.[*].intervenant").value(hasItem(DEFAULT_INTERVENANT)))
+            .andExpect(jsonPath("$.[*].intervenant").value(hasItem(DEFAULT_INTERVENANT.toString())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].visibleSurInternet").value(hasItem(DEFAULT_VISIBLE_SUR_INTERNET.booleanValue())))
             .andExpect(jsonPath("$.[*].dateLivraisonSouhaitee").value(hasItem(DEFAULT_DATE_LIVRAISON_SOUHAITEE.toString())))
@@ -228,7 +228,7 @@ public class DemandeResourceIntTest {
             .andExpect(jsonPath("$.dm_statu").value(DEFAULT_DM_STATU.toString()))
             .andExpect(jsonPath("$.dm_type").value(DEFAULT_DM_TYPE.toString()))
             .andExpect(jsonPath("$.dm_priorite").value(DEFAULT_DM_PRIORITE.toString()))
-            .andExpect(jsonPath("$.intervenant").value(DEFAULT_INTERVENANT))
+            .andExpect(jsonPath("$.intervenant").value(DEFAULT_INTERVENANT.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.visibleSurInternet").value(DEFAULT_VISIBLE_SUR_INTERNET.booleanValue()))
             .andExpect(jsonPath("$.dateLivraisonSouhaitee").value(DEFAULT_DATE_LIVRAISON_SOUHAITEE.toString()))

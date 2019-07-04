@@ -20,7 +20,7 @@ public class DemandeDTO implements Serializable {
 
     private String dm_priorite;
 
-    private Integer intervenant;
+    private String intervenant;
 
     private String description;
 
@@ -83,11 +83,11 @@ public class DemandeDTO implements Serializable {
         this.dm_priorite = dm_priorite;
     }
 
-    public Integer getIntervenant() {
+    public String getIntervenant() {
         return intervenant;
     }
 
-    public void setIntervenant(Integer intervenant) {
+    public void setIntervenant(String intervenant) {
         this.intervenant = intervenant;
     }
 
@@ -169,7 +169,7 @@ public class DemandeDTO implements Serializable {
             ", dm_statu='" + getDm_statu() + "'" +
             ", dm_type='" + getDm_type() + "'" +
             ", dm_priorite='" + getDm_priorite() + "'" +
-            ", intervenant=" + getIntervenant() +
+            ", intervenant='" + getIntervenant() + "'" +
             ", description='" + getDescription() + "'" +
             ", visibleSurInternet='" + isVisibleSurInternet() + "'" +
             ", dateLivraisonSouhaitee='" + getDateLivraisonSouhaitee() + "'" +

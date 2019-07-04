@@ -49,6 +49,9 @@ public class ClientResourceIntTest {
     private static final Integer DEFAULT_CLIENT_NUMERO = 1;
     private static final Integer UPDATED_CLIENT_NUMERO = 2;
 
+    private static final Boolean DEFAULT_FAIT_SA_MISE_EN_PRODUCTION = false;
+    private static final Boolean UPDATED_FAIT_SA_MISE_EN_PRODUCTION = true;
+
     @Autowired
     private ClientRepository clientRepository;
 
@@ -98,7 +101,8 @@ public class ClientResourceIntTest {
     public static Client createEntity(EntityManager em) {
         Client client = new Client()
             .client_nom(DEFAULT_CLIENT_NOM)
-            .client_numero(DEFAULT_CLIENT_NUMERO);
+            .client_numero(DEFAULT_CLIENT_NUMERO)
+            .faitSaMiseEnProduction(DEFAULT_FAIT_SA_MISE_EN_PRODUCTION);
         return client;
     }
 
@@ -125,6 +129,7 @@ public class ClientResourceIntTest {
         Client testClient = clientList.get(clientList.size() - 1);
         assertThat(testClient.getClient_nom()).isEqualTo(DEFAULT_CLIENT_NOM);
         assertThat(testClient.getClient_numero()).isEqualTo(DEFAULT_CLIENT_NUMERO);
+        assertThat(testClient.isFaitSaMiseEnProduction()).isEqualTo(DEFAULT_FAIT_SA_MISE_EN_PRODUCTION);
     }
 
     @Test
@@ -159,7 +164,8 @@ public class ClientResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(client.getId().intValue())))
             .andExpect(jsonPath("$.[*].client_nom").value(hasItem(DEFAULT_CLIENT_NOM.toString())))
-            .andExpect(jsonPath("$.[*].client_numero").value(hasItem(DEFAULT_CLIENT_NUMERO)));
+            .andExpect(jsonPath("$.[*].client_numero").value(hasItem(DEFAULT_CLIENT_NUMERO)))
+            .andExpect(jsonPath("$.[*].faitSaMiseEnProduction").value(hasItem(DEFAULT_FAIT_SA_MISE_EN_PRODUCTION.booleanValue())));
     }
     
     @Test
@@ -174,7 +180,8 @@ public class ClientResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(client.getId().intValue()))
             .andExpect(jsonPath("$.client_nom").value(DEFAULT_CLIENT_NOM.toString()))
-            .andExpect(jsonPath("$.client_numero").value(DEFAULT_CLIENT_NUMERO));
+            .andExpect(jsonPath("$.client_numero").value(DEFAULT_CLIENT_NUMERO))
+            .andExpect(jsonPath("$.faitSaMiseEnProduction").value(DEFAULT_FAIT_SA_MISE_EN_PRODUCTION.booleanValue()));
     }
 
     @Test
@@ -199,7 +206,8 @@ public class ClientResourceIntTest {
         em.detach(updatedClient);
         updatedClient
             .client_nom(UPDATED_CLIENT_NOM)
-            .client_numero(UPDATED_CLIENT_NUMERO);
+            .client_numero(UPDATED_CLIENT_NUMERO)
+            .faitSaMiseEnProduction(UPDATED_FAIT_SA_MISE_EN_PRODUCTION);
         ClientDTO clientDTO = clientMapper.toDto(updatedClient);
 
         restClientMockMvc.perform(put("/api/clients")
@@ -213,6 +221,7 @@ public class ClientResourceIntTest {
         Client testClient = clientList.get(clientList.size() - 1);
         assertThat(testClient.getClient_nom()).isEqualTo(UPDATED_CLIENT_NOM);
         assertThat(testClient.getClient_numero()).isEqualTo(UPDATED_CLIENT_NUMERO);
+        assertThat(testClient.isFaitSaMiseEnProduction()).isEqualTo(UPDATED_FAIT_SA_MISE_EN_PRODUCTION);
     }
 
     @Test

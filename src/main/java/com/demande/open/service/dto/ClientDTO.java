@@ -13,6 +13,8 @@ public class ClientDTO implements Serializable {
 
     private Integer client_numero;
 
+    private Boolean faitSaMiseEnProduction;
+
 
     public Long getId() {
         return id;
@@ -36,6 +38,14 @@ public class ClientDTO implements Serializable {
 
     public void setClient_numero(Integer client_numero) {
         this.client_numero = client_numero;
+    }
+
+    public Boolean isFaitSaMiseEnProduction() {
+        return faitSaMiseEnProduction;
+    }
+
+    public void setFaitSaMiseEnProduction(Boolean faitSaMiseEnProduction) {
+        this.faitSaMiseEnProduction = faitSaMiseEnProduction;
     }
 
     @Override
@@ -65,6 +75,7 @@ public class ClientDTO implements Serializable {
             "id=" + getId() +
             ", client_nom='" + getClient_nom() + "'" +
             ", client_numero=" + getClient_numero() +
+            ", faitSaMiseEnProduction='" + isFaitSaMiseEnProduction() + "'" +
             "}";
     }
 }

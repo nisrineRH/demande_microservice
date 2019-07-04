@@ -30,6 +30,9 @@ public class Client implements Serializable {
     @Column(name = "client_numero")
     private Integer client_numero;
 
+    @Column(name = "fait_sa_mise_en_production")
+    private Boolean faitSaMiseEnProduction;
+
     @OneToMany(mappedBy = "client")
     private Set<Demande> demandes = new HashSet<>();
     @OneToMany(mappedBy = "client")
@@ -67,6 +70,19 @@ public class Client implements Serializable {
 
     public void setClient_numero(Integer client_numero) {
         this.client_numero = client_numero;
+    }
+
+    public Boolean isFaitSaMiseEnProduction() {
+        return faitSaMiseEnProduction;
+    }
+
+    public Client faitSaMiseEnProduction(Boolean faitSaMiseEnProduction) {
+        this.faitSaMiseEnProduction = faitSaMiseEnProduction;
+        return this;
+    }
+
+    public void setFaitSaMiseEnProduction(Boolean faitSaMiseEnProduction) {
+        this.faitSaMiseEnProduction = faitSaMiseEnProduction;
     }
 
     public Set<Demande> getDemandes() {
@@ -146,6 +162,7 @@ public class Client implements Serializable {
             "id=" + getId() +
             ", client_nom='" + getClient_nom() + "'" +
             ", client_numero=" + getClient_numero() +
+            ", faitSaMiseEnProduction='" + isFaitSaMiseEnProduction() + "'" +
             "}";
     }
 }
