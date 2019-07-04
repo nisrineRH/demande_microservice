@@ -53,6 +53,9 @@ public class Demande implements Serializable {
     @Column(name = "date_livraison_souhaitee")
     private LocalDate dateLivraisonSouhaitee;
 
+    @Column(name = "date_accord_devis")
+    private LocalDate dateAccordDevis;
+
     @ManyToOne
     @JsonIgnoreProperties("demandes")
     private Client client;
@@ -189,6 +192,19 @@ public class Demande implements Serializable {
         this.dateLivraisonSouhaitee = dateLivraisonSouhaitee;
     }
 
+    public LocalDate getDateAccordDevis() {
+        return dateAccordDevis;
+    }
+
+    public Demande dateAccordDevis(LocalDate dateAccordDevis) {
+        this.dateAccordDevis = dateAccordDevis;
+        return this;
+    }
+
+    public void setDateAccordDevis(LocalDate dateAccordDevis) {
+        this.dateAccordDevis = dateAccordDevis;
+    }
+
     public Client getClient() {
         return client;
     }
@@ -274,6 +290,7 @@ public class Demande implements Serializable {
             ", description='" + getDescription() + "'" +
             ", visibleSurInternet='" + isVisibleSurInternet() + "'" +
             ", dateLivraisonSouhaitee='" + getDateLivraisonSouhaitee() + "'" +
+            ", dateAccordDevis='" + getDateAccordDevis() + "'" +
             "}";
     }
 }

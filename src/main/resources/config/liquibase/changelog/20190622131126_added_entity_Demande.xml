@@ -57,6 +57,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="date_accord_devis" type="date">
+                <constraints nullable="true" />
+            </column>
+
             <column name="client_id" type="bigint">
                 <constraints nullable="true" />
             </column>

@@ -90,19 +90,6 @@ public class DemandeResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/demandes");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
-      /**
-     * GET  /demandes : get all the demandes By Fields.
-     *
-     * @param String the pagination information
-     * @return the ResponseEntity with status 200 (OK) and the list of demandes in body
-     */
-    @GetMapping("/demandes/search")
-    public ResponseEntity<List<DemandeDTO>> getAllDemandesByFields(@RequestParam String param,Pageable pageable) {
-        log.debug("REST request to get a page of Demandes");
-        Page<DemandeDTO> page = demandeService.getByFields(param,pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/demandes/search");
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
-    }
 
     /**
      * GET  /demandes/:id : get the "id" demande.

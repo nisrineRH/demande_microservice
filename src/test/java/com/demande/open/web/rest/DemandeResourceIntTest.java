@@ -72,6 +72,9 @@ public class DemandeResourceIntTest {
     private static final LocalDate DEFAULT_DATE_LIVRAISON_SOUHAITEE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE_LIVRAISON_SOUHAITEE = LocalDate.now(ZoneId.systemDefault());
 
+    private static final LocalDate DEFAULT_DATE_ACCORD_DEVIS = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE_ACCORD_DEVIS = LocalDate.now(ZoneId.systemDefault());
+
     @Autowired
     private DemandeRepository demandeRepository;
 
@@ -128,7 +131,8 @@ public class DemandeResourceIntTest {
             .intervenant(DEFAULT_INTERVENANT)
             .description(DEFAULT_DESCRIPTION)
             .visibleSurInternet(DEFAULT_VISIBLE_SUR_INTERNET)
-            .dateLivraisonSouhaitee(DEFAULT_DATE_LIVRAISON_SOUHAITEE);
+            .dateLivraisonSouhaitee(DEFAULT_DATE_LIVRAISON_SOUHAITEE)
+            .dateAccordDevis(DEFAULT_DATE_ACCORD_DEVIS);
         return demande;
     }
 
@@ -162,6 +166,7 @@ public class DemandeResourceIntTest {
         assertThat(testDemande.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testDemande.isVisibleSurInternet()).isEqualTo(DEFAULT_VISIBLE_SUR_INTERNET);
         assertThat(testDemande.getDateLivraisonSouhaitee()).isEqualTo(DEFAULT_DATE_LIVRAISON_SOUHAITEE);
+        assertThat(testDemande.getDateAccordDevis()).isEqualTo(DEFAULT_DATE_ACCORD_DEVIS);
     }
 
     @Test
@@ -203,7 +208,8 @@ public class DemandeResourceIntTest {
             .andExpect(jsonPath("$.[*].intervenant").value(hasItem(DEFAULT_INTERVENANT)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].visibleSurInternet").value(hasItem(DEFAULT_VISIBLE_SUR_INTERNET.booleanValue())))
-            .andExpect(jsonPath("$.[*].dateLivraisonSouhaitee").value(hasItem(DEFAULT_DATE_LIVRAISON_SOUHAITEE.toString())));
+            .andExpect(jsonPath("$.[*].dateLivraisonSouhaitee").value(hasItem(DEFAULT_DATE_LIVRAISON_SOUHAITEE.toString())))
+            .andExpect(jsonPath("$.[*].dateAccordDevis").value(hasItem(DEFAULT_DATE_ACCORD_DEVIS.toString())));
     }
     
     @Test
@@ -225,7 +231,8 @@ public class DemandeResourceIntTest {
             .andExpect(jsonPath("$.intervenant").value(DEFAULT_INTERVENANT))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.visibleSurInternet").value(DEFAULT_VISIBLE_SUR_INTERNET.booleanValue()))
-            .andExpect(jsonPath("$.dateLivraisonSouhaitee").value(DEFAULT_DATE_LIVRAISON_SOUHAITEE.toString()));
+            .andExpect(jsonPath("$.dateLivraisonSouhaitee").value(DEFAULT_DATE_LIVRAISON_SOUHAITEE.toString()))
+            .andExpect(jsonPath("$.dateAccordDevis").value(DEFAULT_DATE_ACCORD_DEVIS.toString()));
     }
 
     @Test
@@ -257,7 +264,8 @@ public class DemandeResourceIntTest {
             .intervenant(UPDATED_INTERVENANT)
             .description(UPDATED_DESCRIPTION)
             .visibleSurInternet(UPDATED_VISIBLE_SUR_INTERNET)
-            .dateLivraisonSouhaitee(UPDATED_DATE_LIVRAISON_SOUHAITEE);
+            .dateLivraisonSouhaitee(UPDATED_DATE_LIVRAISON_SOUHAITEE)
+            .dateAccordDevis(UPDATED_DATE_ACCORD_DEVIS);
         DemandeDTO demandeDTO = demandeMapper.toDto(updatedDemande);
 
         restDemandeMockMvc.perform(put("/api/demandes")
@@ -278,6 +286,7 @@ public class DemandeResourceIntTest {
         assertThat(testDemande.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testDemande.isVisibleSurInternet()).isEqualTo(UPDATED_VISIBLE_SUR_INTERNET);
         assertThat(testDemande.getDateLivraisonSouhaitee()).isEqualTo(UPDATED_DATE_LIVRAISON_SOUHAITEE);
+        assertThat(testDemande.getDateAccordDevis()).isEqualTo(UPDATED_DATE_ACCORD_DEVIS);
     }
 
     @Test

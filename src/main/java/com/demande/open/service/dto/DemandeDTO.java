@@ -28,6 +28,8 @@ public class DemandeDTO implements Serializable {
 
     private LocalDate dateLivraisonSouhaitee;
 
+    private LocalDate dateAccordDevis;
+
 
     private Long clientId;
 
@@ -113,6 +115,14 @@ public class DemandeDTO implements Serializable {
         this.dateLivraisonSouhaitee = dateLivraisonSouhaitee;
     }
 
+    public LocalDate getDateAccordDevis() {
+        return dateAccordDevis;
+    }
+
+    public void setDateAccordDevis(LocalDate dateAccordDevis) {
+        this.dateAccordDevis = dateAccordDevis;
+    }
+
     public Long getClientId() {
         return clientId;
     }
@@ -163,6 +173,7 @@ public class DemandeDTO implements Serializable {
             ", description='" + getDescription() + "'" +
             ", visibleSurInternet='" + isVisibleSurInternet() + "'" +
             ", dateLivraisonSouhaitee='" + getDateLivraisonSouhaitee() + "'" +
+            ", dateAccordDevis='" + getDateAccordDevis() + "'" +
             ", client=" + getClientId() +
             ", histouriqueStatutDemande=" + getHistouriqueStatutDemandeId() +
             "}";

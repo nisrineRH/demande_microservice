@@ -64,6 +64,10 @@
         {
             "fieldName": "dateLivraisonSouhaitee",
             "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateAccordDevis",
+            "fieldType": "LocalDate"
         }
     ],
     "changelogDate": "20190622131126",
