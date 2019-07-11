@@ -51,8 +51,8 @@ public class DemandeResourceIntTest {
     private static final String DEFAULT_DM_LIBELLE = "AAAAAAAAAA";
     private static final String UPDATED_DM_LIBELLE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_DM_STATU = "AAAAAAAAAA";
-    private static final String UPDATED_DM_STATU = "BBBBBBBBBB";
+    private static final String DEFAULT_DM_STATUT = "AAAAAAAAAA";
+    private static final String UPDATED_DM_STATUT = "BBBBBBBBBB";
 
     private static final String DEFAULT_DM_TYPE = "AAAAAAAAAA";
     private static final String UPDATED_DM_TYPE = "BBBBBBBBBB";
@@ -74,6 +74,18 @@ public class DemandeResourceIntTest {
 
     private static final LocalDate DEFAULT_DATE_ACCORD_DEVIS = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE_ACCORD_DEVIS = LocalDate.now(ZoneId.systemDefault());
+
+    private static final LocalDate DEFAULT_DATE_LIVRAISON_PREVUE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE_LIVRAISON_PREVUE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final LocalDate DEFAULT_DATE_MISE_EN_RECETTE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE_MISE_EN_RECETTE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final LocalDate DEFAULT_DATE_VALIDATION_RECETTE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE_VALIDATION_RECETTE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final LocalDate DEFAULT_DATE_MISE_EN_PRODUCTION = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE_MISE_EN_PRODUCTION = LocalDate.now(ZoneId.systemDefault());
 
     @Autowired
     private DemandeRepository demandeRepository;
@@ -125,14 +137,18 @@ public class DemandeResourceIntTest {
         Demande demande = new Demande()
             .dm_numero(DEFAULT_DM_NUMERO)
             .dm_libelle(DEFAULT_DM_LIBELLE)
-            .dm_statu(DEFAULT_DM_STATU)
+            .dm_statut(DEFAULT_DM_STATUT)
             .dm_type(DEFAULT_DM_TYPE)
             .dm_priorite(DEFAULT_DM_PRIORITE)
             .intervenant(DEFAULT_INTERVENANT)
             .description(DEFAULT_DESCRIPTION)
             .visibleSurInternet(DEFAULT_VISIBLE_SUR_INTERNET)
             .dateLivraisonSouhaitee(DEFAULT_DATE_LIVRAISON_SOUHAITEE)
-            .dateAccordDevis(DEFAULT_DATE_ACCORD_DEVIS);
+            .dateAccordDevis(DEFAULT_DATE_ACCORD_DEVIS)
+            .dateLivraisonPrevue(DEFAULT_DATE_LIVRAISON_PREVUE)
+            .dateMiseEnRecette(DEFAULT_DATE_MISE_EN_RECETTE)
+            .dateValidationRecette(DEFAULT_DATE_VALIDATION_RECETTE)
+            .dateMiseEnProduction(DEFAULT_DATE_MISE_EN_PRODUCTION);
         return demande;
     }
 
@@ -159,7 +175,7 @@ public class DemandeResourceIntTest {
         Demande testDemande = demandeList.get(demandeList.size() - 1);
         assertThat(testDemande.getDm_numero()).isEqualTo(DEFAULT_DM_NUMERO);
         assertThat(testDemande.getDm_libelle()).isEqualTo(DEFAULT_DM_LIBELLE);
-        assertThat(testDemande.getDm_statu()).isEqualTo(DEFAULT_DM_STATU);
+        assertThat(testDemande.getDm_statut()).isEqualTo(DEFAULT_DM_STATUT);
         assertThat(testDemande.getDm_type()).isEqualTo(DEFAULT_DM_TYPE);
         assertThat(testDemande.getDm_priorite()).isEqualTo(DEFAULT_DM_PRIORITE);
         assertThat(testDemande.getIntervenant()).isEqualTo(DEFAULT_INTERVENANT);
@@ -167,6 +183,10 @@ public class DemandeResourceIntTest {
         assertThat(testDemande.isVisibleSurInternet()).isEqualTo(DEFAULT_VISIBLE_SUR_INTERNET);
         assertThat(testDemande.getDateLivraisonSouhaitee()).isEqualTo(DEFAULT_DATE_LIVRAISON_SOUHAITEE);
         assertThat(testDemande.getDateAccordDevis()).isEqualTo(DEFAULT_DATE_ACCORD_DEVIS);
+        assertThat(testDemande.getDateLivraisonPrevue()).isEqualTo(DEFAULT_DATE_LIVRAISON_PREVUE);
+        assertThat(testDemande.getDateMiseEnRecette()).isEqualTo(DEFAULT_DATE_MISE_EN_RECETTE);
+        assertThat(testDemande.getDateValidationRecette()).isEqualTo(DEFAULT_DATE_VALIDATION_RECETTE);
+        assertThat(testDemande.getDateMiseEnProduction()).isEqualTo(DEFAULT_DATE_MISE_EN_PRODUCTION);
     }
 
     @Test
@@ -202,14 +222,18 @@ public class DemandeResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(demande.getId().intValue())))
             .andExpect(jsonPath("$.[*].dm_numero").value(hasItem(DEFAULT_DM_NUMERO)))
             .andExpect(jsonPath("$.[*].dm_libelle").value(hasItem(DEFAULT_DM_LIBELLE.toString())))
-            .andExpect(jsonPath("$.[*].dm_statu").value(hasItem(DEFAULT_DM_STATU.toString())))
+            .andExpect(jsonPath("$.[*].dm_statut").value(hasItem(DEFAULT_DM_STATUT.toString())))
             .andExpect(jsonPath("$.[*].dm_type").value(hasItem(DEFAULT_DM_TYPE.toString())))
             .andExpect(jsonPath("$.[*].dm_priorite").value(hasItem(DEFAULT_DM_PRIORITE.toString())))
             .andExpect(jsonPath("$.[*].intervenant").value(hasItem(DEFAULT_INTERVENANT.toString())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].visibleSurInternet").value(hasItem(DEFAULT_VISIBLE_SUR_INTERNET.booleanValue())))
             .andExpect(jsonPath("$.[*].dateLivraisonSouhaitee").value(hasItem(DEFAULT_DATE_LIVRAISON_SOUHAITEE.toString())))
-            .andExpect(jsonPath("$.[*].dateAccordDevis").value(hasItem(DEFAULT_DATE_ACCORD_DEVIS.toString())));
+            .andExpect(jsonPath("$.[*].dateAccordDevis").value(hasItem(DEFAULT_DATE_ACCORD_DEVIS.toString())))
+            .andExpect(jsonPath("$.[*].dateLivraisonPrevue").value(hasItem(DEFAULT_DATE_LIVRAISON_PREVUE.toString())))
+            .andExpect(jsonPath("$.[*].dateMiseEnRecette").value(hasItem(DEFAULT_DATE_MISE_EN_RECETTE.toString())))
+            .andExpect(jsonPath("$.[*].dateValidationRecette").value(hasItem(DEFAULT_DATE_VALIDATION_RECETTE.toString())))
+            .andExpect(jsonPath("$.[*].dateMiseEnProduction").value(hasItem(DEFAULT_DATE_MISE_EN_PRODUCTION.toString())));
     }
     
     @Test
@@ -225,14 +249,18 @@ public class DemandeResourceIntTest {
             .andExpect(jsonPath("$.id").value(demande.getId().intValue()))
             .andExpect(jsonPath("$.dm_numero").value(DEFAULT_DM_NUMERO))
             .andExpect(jsonPath("$.dm_libelle").value(DEFAULT_DM_LIBELLE.toString()))
-            .andExpect(jsonPath("$.dm_statu").value(DEFAULT_DM_STATU.toString()))
+            .andExpect(jsonPath("$.dm_statut").value(DEFAULT_DM_STATUT.toString()))
             .andExpect(jsonPath("$.dm_type").value(DEFAULT_DM_TYPE.toString()))
             .andExpect(jsonPath("$.dm_priorite").value(DEFAULT_DM_PRIORITE.toString()))
             .andExpect(jsonPath("$.intervenant").value(DEFAULT_INTERVENANT.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.visibleSurInternet").value(DEFAULT_VISIBLE_SUR_INTERNET.booleanValue()))
             .andExpect(jsonPath("$.dateLivraisonSouhaitee").value(DEFAULT_DATE_LIVRAISON_SOUHAITEE.toString()))
-            .andExpect(jsonPath("$.dateAccordDevis").value(DEFAULT_DATE_ACCORD_DEVIS.toString()));
+            .andExpect(jsonPath("$.dateAccordDevis").value(DEFAULT_DATE_ACCORD_DEVIS.toString()))
+            .andExpect(jsonPath("$.dateLivraisonPrevue").value(DEFAULT_DATE_LIVRAISON_PREVUE.toString()))
+            .andExpect(jsonPath("$.dateMiseEnRecette").value(DEFAULT_DATE_MISE_EN_RECETTE.toString()))
+            .andExpect(jsonPath("$.dateValidationRecette").value(DEFAULT_DATE_VALIDATION_RECETTE.toString()))
+            .andExpect(jsonPath("$.dateMiseEnProduction").value(DEFAULT_DATE_MISE_EN_PRODUCTION.toString()));
     }
 
     @Test
@@ -258,14 +286,18 @@ public class DemandeResourceIntTest {
         updatedDemande
             .dm_numero(UPDATED_DM_NUMERO)
             .dm_libelle(UPDATED_DM_LIBELLE)
-            .dm_statu(UPDATED_DM_STATU)
+            .dm_statut(UPDATED_DM_STATUT)
             .dm_type(UPDATED_DM_TYPE)
             .dm_priorite(UPDATED_DM_PRIORITE)
             .intervenant(UPDATED_INTERVENANT)
             .description(UPDATED_DESCRIPTION)
             .visibleSurInternet(UPDATED_VISIBLE_SUR_INTERNET)
             .dateLivraisonSouhaitee(UPDATED_DATE_LIVRAISON_SOUHAITEE)
-            .dateAccordDevis(UPDATED_DATE_ACCORD_DEVIS);
+            .dateAccordDevis(UPDATED_DATE_ACCORD_DEVIS)
+            .dateLivraisonPrevue(UPDATED_DATE_LIVRAISON_PREVUE)
+            .dateMiseEnRecette(UPDATED_DATE_MISE_EN_RECETTE)
+            .dateValidationRecette(UPDATED_DATE_VALIDATION_RECETTE)
+            .dateMiseEnProduction(UPDATED_DATE_MISE_EN_PRODUCTION);
         DemandeDTO demandeDTO = demandeMapper.toDto(updatedDemande);
 
         restDemandeMockMvc.perform(put("/api/demandes")
@@ -279,7 +311,7 @@ public class DemandeResourceIntTest {
         Demande testDemande = demandeList.get(demandeList.size() - 1);
         assertThat(testDemande.getDm_numero()).isEqualTo(UPDATED_DM_NUMERO);
         assertThat(testDemande.getDm_libelle()).isEqualTo(UPDATED_DM_LIBELLE);
-        assertThat(testDemande.getDm_statu()).isEqualTo(UPDATED_DM_STATU);
+        assertThat(testDemande.getDm_statut()).isEqualTo(UPDATED_DM_STATUT);
         assertThat(testDemande.getDm_type()).isEqualTo(UPDATED_DM_TYPE);
         assertThat(testDemande.getDm_priorite()).isEqualTo(UPDATED_DM_PRIORITE);
         assertThat(testDemande.getIntervenant()).isEqualTo(UPDATED_INTERVENANT);
@@ -287,6 +319,10 @@ public class DemandeResourceIntTest {
         assertThat(testDemande.isVisibleSurInternet()).isEqualTo(UPDATED_VISIBLE_SUR_INTERNET);
         assertThat(testDemande.getDateLivraisonSouhaitee()).isEqualTo(UPDATED_DATE_LIVRAISON_SOUHAITEE);
         assertThat(testDemande.getDateAccordDevis()).isEqualTo(UPDATED_DATE_ACCORD_DEVIS);
+        assertThat(testDemande.getDateLivraisonPrevue()).isEqualTo(UPDATED_DATE_LIVRAISON_PREVUE);
+        assertThat(testDemande.getDateMiseEnRecette()).isEqualTo(UPDATED_DATE_MISE_EN_RECETTE);
+        assertThat(testDemande.getDateValidationRecette()).isEqualTo(UPDATED_DATE_VALIDATION_RECETTE);
+        assertThat(testDemande.getDateMiseEnProduction()).isEqualTo(UPDATED_DATE_MISE_EN_PRODUCTION);
     }
 
     @Test

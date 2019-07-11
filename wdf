@@ -1,0 +1,53 @@
+[33mcommit 57797e8ddce11e06a84e52e54c1112eb8725a401[m
+Author: salah <houayasalah@yahoo.fr>
+Date:   Thu Jul 4 18:48:22 2019 +0100
+
+    add other fields to Client
+
+[33mcommit adf759d798a84bc031899beb0873d0120bae7efd[m
+Author: salah <houayasalah@yahoo.fr>
+Date:   Thu Jul 4 18:37:10 2019 +0100
+
+    add other fields
+
+[33mcommit 36ce2515e23b212aef31d818317109fcb75d5710[m
+Author: salah <houayasalah@yahoo.fr>
+Date:   Sat Jun 29 12:54:29 2019 +0100
+
+    create demand_search method
+
+[33mcommit 6dd30ddd589f2d3b4ce5543c80c71ad16dd38b43[m
+Author: salah <houayasalah@yahoo.fr>
+Date:   Tue Jun 25 23:39:42 2019 +0100
+
+    create other entities on microservice
+
+[33mcommit 9aa8551077b7a3dc24df876ac433c0f8519dc723[m
+Author: salah <houayasalah@yahoo.fr>
+Date:   Sat Jun 22 15:39:17 2019 +0100
+
+    create other entities/relationship
+
+[33mcommit fdaa6737b4eb2be4dffa30ffc2855ac982cfdc03[m
+Author: salah <houayasalah@yahoo.fr>
+Date:   Sat Jun 22 15:01:07 2019 +0100
+
+    add relationship
+
+[33mcommit 83b572cc633b67f40c160fecdf8c7001f8ecf7a3[m
+Author: salah <houayasalah@yahoo.fr>
+Date:   Sat Jun 22 14:14:35 2019 +0100
+
+    create client/demande entities
+
+[33mcommit 32cf7fd490364bc2a9a058cc657b9decf3b497e0[m
+Author: salah <houayasalah@yahoo.fr>
+Date:   Wed Jun 12 15:00:23 2019 +0100
+
+    create demande microservice
+
+[33mcommit 4eeb538b43338aa1326dc5d29b9027b7a7a4cf68[m
+Author: nisrineRH <50488442+nisrineRH@users.noreply.github.com>
+Date:   Wed Jun 12 14:39:21 2019 +0100
+
+    Initial commit

@@ -32,8 +32,8 @@ public class Demande implements Serializable {
     @Column(name = "dm_libelle")
     private String dm_libelle;
 
-    @Column(name = "dm_statu")
-    private String dm_statu;
+    @Column(name = "dm_statut")
+    private String dm_statut;
 
     @Column(name = "dm_type")
     private String dm_type;
@@ -55,6 +55,18 @@ public class Demande implements Serializable {
 
     @Column(name = "date_accord_devis")
     private LocalDate dateAccordDevis;
+
+    @Column(name = "date_livraison_prevue")
+    private LocalDate dateLivraisonPrevue;
+
+    @Column(name = "date_mise_en_recette")
+    private LocalDate dateMiseEnRecette;
+
+    @Column(name = "date_validation_recette")
+    private LocalDate dateValidationRecette;
+
+    @Column(name = "date_mise_en_production")
+    private LocalDate dateMiseEnProduction;
 
     @ManyToOne
     @JsonIgnoreProperties("demandes")
@@ -101,17 +113,17 @@ public class Demande implements Serializable {
         this.dm_libelle = dm_libelle;
     }
 
-    public String getDm_statu() {
-        return dm_statu;
+    public String getDm_statut() {
+        return dm_statut;
     }
 
-    public Demande dm_statu(String dm_statu) {
-        this.dm_statu = dm_statu;
+    public Demande dm_statut(String dm_statut) {
+        this.dm_statut = dm_statut;
         return this;
     }
 
-    public void setDm_statu(String dm_statu) {
-        this.dm_statu = dm_statu;
+    public void setDm_statut(String dm_statut) {
+        this.dm_statut = dm_statut;
     }
 
     public String getDm_type() {
@@ -205,6 +217,58 @@ public class Demande implements Serializable {
         this.dateAccordDevis = dateAccordDevis;
     }
 
+    public LocalDate getDateLivraisonPrevue() {
+        return dateLivraisonPrevue;
+    }
+
+    public Demande dateLivraisonPrevue(LocalDate dateLivraisonPrevue) {
+        this.dateLivraisonPrevue = dateLivraisonPrevue;
+        return this;
+    }
+
+    public void setDateLivraisonPrevue(LocalDate dateLivraisonPrevue) {
+        this.dateLivraisonPrevue = dateLivraisonPrevue;
+    }
+
+    public LocalDate getDateMiseEnRecette() {
+        return dateMiseEnRecette;
+    }
+
+    public Demande dateMiseEnRecette(LocalDate dateMiseEnRecette) {
+        this.dateMiseEnRecette = dateMiseEnRecette;
+        return this;
+    }
+
+    public void setDateMiseEnRecette(LocalDate dateMiseEnRecette) {
+        this.dateMiseEnRecette = dateMiseEnRecette;
+    }
+
+    public LocalDate getDateValidationRecette() {
+        return dateValidationRecette;
+    }
+
+    public Demande dateValidationRecette(LocalDate dateValidationRecette) {
+        this.dateValidationRecette = dateValidationRecette;
+        return this;
+    }
+
+    public void setDateValidationRecette(LocalDate dateValidationRecette) {
+        this.dateValidationRecette = dateValidationRecette;
+    }
+
+    public LocalDate getDateMiseEnProduction() {
+        return dateMiseEnProduction;
+    }
+
+    public Demande dateMiseEnProduction(LocalDate dateMiseEnProduction) {
+        this.dateMiseEnProduction = dateMiseEnProduction;
+        return this;
+    }
+
+    public void setDateMiseEnProduction(LocalDate dateMiseEnProduction) {
+        this.dateMiseEnProduction = dateMiseEnProduction;
+    }
+
     public Client getClient() {
         return client;
     }
@@ -283,7 +347,7 @@ public class Demande implements Serializable {
             "id=" + getId() +
             ", dm_numero=" + getDm_numero() +
             ", dm_libelle='" + getDm_libelle() + "'" +
-            ", dm_statu='" + getDm_statu() + "'" +
+            ", dm_statut='" + getDm_statut() + "'" +
             ", dm_type='" + getDm_type() + "'" +
             ", dm_priorite='" + getDm_priorite() + "'" +
             ", intervenant='" + getIntervenant() + "'" +
@@ -291,6 +355,10 @@ public class Demande implements Serializable {
             ", visibleSurInternet='" + isVisibleSurInternet() + "'" +
             ", dateLivraisonSouhaitee='" + getDateLivraisonSouhaitee() + "'" +
             ", dateAccordDevis='" + getDateAccordDevis() + "'" +
+            ", dateLivraisonPrevue='" + getDateLivraisonPrevue() + "'" +
+            ", dateMiseEnRecette='" + getDateMiseEnRecette() + "'" +
+            ", dateValidationRecette='" + getDateValidationRecette() + "'" +
+            ", dateMiseEnProduction='" + getDateMiseEnProduction() + "'" +
             "}";
     }
 }

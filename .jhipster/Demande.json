@@ -38,7 +38,7 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "dm_statu",
+            "fieldName": "dm_statut",
             "fieldType": "String"
         },
         {
@@ -67,6 +67,22 @@
         },
         {
             "fieldName": "dateAccordDevis",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateLivraisonPrevue",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateMiseEnRecette",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateValidationRecette",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateMiseEnProduction",
             "fieldType": "LocalDate"
         }
     ],

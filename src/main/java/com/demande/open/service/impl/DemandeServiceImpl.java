@@ -13,7 +13,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import java.util.Optional;
 
 /**
@@ -87,15 +86,4 @@ public class DemandeServiceImpl implements DemandeService {
         log.debug("Request to delete Demande : {}", id);
         demandeRepository.deleteById(id);
     }
-
-    @Override
-    public Page<DemandeDTO> getByFields(String term, Pageable pageable) {
-        log.debug(" Request to get all Client_document By Fields");
-        return demandeRepository.getByNumLibDM(term, pageable)
-            .map(demandeMapper::toDto);
-
-        }
-    }
-
-
-
+}

@@ -29,7 +29,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="dm_statu" type="varchar(255)">
+            <column name="dm_statut" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
@@ -58,6 +58,22 @@
             </column>
 
             <column name="date_accord_devis" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_livraison_prevue" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_mise_en_recette" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_validation_recette" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_mise_en_production" type="date">
                 <constraints nullable="true" />
             </column>
 

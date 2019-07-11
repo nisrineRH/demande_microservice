@@ -1,5 +1,4 @@
 package com.demande.open.web.rest;
-import com.demande.open.domain.Demande;
 import com.demande.open.service.DemandeService;
 import com.demande.open.web.rest.errors.BadRequestAlertException;
 import com.demande.open.web.rest.util.HeaderUtil;
@@ -11,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -88,20 +88,6 @@ public class DemandeResource {
         log.debug("REST request to get a page of Demandes");
         Page<DemandeDTO> page = demandeService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/demandes");
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
-    }
-
-    /**
-     * GET  /demandes : get all the demandes.
-     *
-     * @param String the pagination information
-     * @return the ResponseEntity with status 200 (OK) and the list of demandes in body
-     */
-    @GetMapping("/demandes/search")
-        public ResponseEntity<List<DemandeDTO>> getAllClient_documentsByFields(@RequestParam String param, Pageable pageable) {
-        log.debug("REST request to get a page of Demandes");
-        Page<DemandeDTO> page = demandeService.getByFields(param,pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/demandes/search");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 

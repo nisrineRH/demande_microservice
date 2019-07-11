@@ -14,7 +14,7 @@ public class DemandeDTO implements Serializable {
 
     private String dm_libelle;
 
-    private String dm_statu;
+    private String dm_statut;
 
     private String dm_type;
 
@@ -29,6 +29,14 @@ public class DemandeDTO implements Serializable {
     private LocalDate dateLivraisonSouhaitee;
 
     private LocalDate dateAccordDevis;
+
+    private LocalDate dateLivraisonPrevue;
+
+    private LocalDate dateMiseEnRecette;
+
+    private LocalDate dateValidationRecette;
+
+    private LocalDate dateMiseEnProduction;
 
 
     private Long clientId;
@@ -59,12 +67,12 @@ public class DemandeDTO implements Serializable {
         this.dm_libelle = dm_libelle;
     }
 
-    public String getDm_statu() {
-        return dm_statu;
+    public String getDm_statut() {
+        return dm_statut;
     }
 
-    public void setDm_statu(String dm_statu) {
-        this.dm_statu = dm_statu;
+    public void setDm_statut(String dm_statut) {
+        this.dm_statut = dm_statut;
     }
 
     public String getDm_type() {
@@ -123,6 +131,38 @@ public class DemandeDTO implements Serializable {
         this.dateAccordDevis = dateAccordDevis;
     }
 
+    public LocalDate getDateLivraisonPrevue() {
+        return dateLivraisonPrevue;
+    }
+
+    public void setDateLivraisonPrevue(LocalDate dateLivraisonPrevue) {
+        this.dateLivraisonPrevue = dateLivraisonPrevue;
+    }
+
+    public LocalDate getDateMiseEnRecette() {
+        return dateMiseEnRecette;
+    }
+
+    public void setDateMiseEnRecette(LocalDate dateMiseEnRecette) {
+        this.dateMiseEnRecette = dateMiseEnRecette;
+    }
+
+    public LocalDate getDateValidationRecette() {
+        return dateValidationRecette;
+    }
+
+    public void setDateValidationRecette(LocalDate dateValidationRecette) {
+        this.dateValidationRecette = dateValidationRecette;
+    }
+
+    public LocalDate getDateMiseEnProduction() {
+        return dateMiseEnProduction;
+    }
+
+    public void setDateMiseEnProduction(LocalDate dateMiseEnProduction) {
+        this.dateMiseEnProduction = dateMiseEnProduction;
+    }
+
     public Long getClientId() {
         return clientId;
     }
@@ -166,7 +206,7 @@ public class DemandeDTO implements Serializable {
             "id=" + getId() +
             ", dm_numero=" + getDm_numero() +
             ", dm_libelle='" + getDm_libelle() + "'" +
-            ", dm_statu='" + getDm_statu() + "'" +
+            ", dm_statut='" + getDm_statut() + "'" +
             ", dm_type='" + getDm_type() + "'" +
             ", dm_priorite='" + getDm_priorite() + "'" +
             ", intervenant='" + getIntervenant() + "'" +
@@ -174,6 +214,10 @@ public class DemandeDTO implements Serializable {
             ", visibleSurInternet='" + isVisibleSurInternet() + "'" +
             ", dateLivraisonSouhaitee='" + getDateLivraisonSouhaitee() + "'" +
             ", dateAccordDevis='" + getDateAccordDevis() + "'" +
+            ", dateLivraisonPrevue='" + getDateLivraisonPrevue() + "'" +
+            ", dateMiseEnRecette='" + getDateMiseEnRecette() + "'" +
+            ", dateValidationRecette='" + getDateValidationRecette() + "'" +
+            ", dateMiseEnProduction='" + getDateMiseEnProduction() + "'" +
             ", client=" + getClientId() +
             ", histouriqueStatutDemande=" + getHistouriqueStatutDemandeId() +
             "}";
