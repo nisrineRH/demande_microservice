@@ -43,4 +43,7 @@ public interface Client_documentService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+
+    Page<Client_documentDTO> getByFields(String term, Pageable pageable);
 }

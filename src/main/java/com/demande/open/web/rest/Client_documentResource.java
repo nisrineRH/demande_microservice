@@ -103,6 +103,22 @@ public class Client_documentResource {
         Optional<Client_documentDTO> client_documentDTO = client_documentService.findOne(id);
         return ResponseUtil.wrapOrNotFound(client_documentDTO);
     }
+    /**
+     * GET  /client-documents : get all the client_documents.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of client_documents in body
+     */
+    @GetMapping("/client-documents/search")
+    public ResponseEntity<List<Client_documentDTO>> getAllClient_documentsByFields(@RequestParam String param, Pageable pageable) {
+        log.debug("REST request to get a page of Client_documents");
+        Page<Client_documentDTO> page = client_documentService.getByFields(param,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/client-documents/search");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+
+
 
     /**
      * DELETE  /client-documents/:id : delete the "id" client_document.

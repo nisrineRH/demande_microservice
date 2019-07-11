@@ -86,4 +86,10 @@ public class Client_documentServiceImpl implements Client_documentService {
         log.debug("Request to delete Client_document : {}", id);
         client_documentRepository.deleteById(id);
     }
+
+    @Override
+    public Page<Client_documentDTO> getByFields(String term, Pageable pageable){
+        log.debug(" Request to get all Client_document By Fields");
+        return client_documentRepository.getByLibDoc(term,pageable).map(client_documentMapper::toDto);
+    }
 }

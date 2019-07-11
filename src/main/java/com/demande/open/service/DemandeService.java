@@ -43,4 +43,7 @@ public interface DemandeService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+     Page<DemandeDTO> getByFields(String term, Pageable pageable);
+
 }
