@@ -13,6 +13,8 @@ public class Demande_documentDTO implements Serializable {
 
     private String dm_doc_type;
 
+    private String url;
+
 
     private Long demandeId;
 
@@ -38,6 +40,14 @@ public class Demande_documentDTO implements Serializable {
 
     public void setDm_doc_type(String dm_doc_type) {
         this.dm_doc_type = dm_doc_type;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Long getDemandeId() {
@@ -75,6 +85,7 @@ public class Demande_documentDTO implements Serializable {
             "id=" + getId() +
             ", dm_doc_libelle='" + getDm_doc_libelle() + "'" +
             ", dm_doc_type='" + getDm_doc_type() + "'" +
+            ", url='" + getUrl() + "'" +
             ", demande=" + getDemandeId() +
             "}";
     }

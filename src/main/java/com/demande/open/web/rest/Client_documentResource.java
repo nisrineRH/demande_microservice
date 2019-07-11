@@ -117,6 +117,30 @@ public class Client_documentResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/client-documents/clients")
+    public ResponseEntity<List<Client_documentDTO>> getAllClient_documentsByClient(@RequestParam Long idClient, Pageable pageable) {
+        log.debug("REST request to get a page of Client_documents");
+        Page<Client_documentDTO> page = client_documentService.getByClient(idClient,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/client-documents/clients");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/client-documents/categorie")
+    public ResponseEntity<List<Client_documentDTO>> getAllClient_documentsByCategory(@RequestParam Long id, Pageable pageable) {
+        log.debug("REST request to get a page of Client_documents");
+        Page<Client_documentDTO> page = client_documentService.getByCategory(id,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/client-documents/categorie");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+
+   
+
+
+    
+
+
+
 
 
 

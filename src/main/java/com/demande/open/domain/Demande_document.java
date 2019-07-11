@@ -28,7 +28,11 @@ public class Demande_document implements Serializable {
     @Column(name = "dm_doc_type")
     private String dm_doc_type;
 
+    @Column(name = "url")
+    private String url;
+
     @ManyToOne
+    @JsonIgnoreProperties("demande_documents")
     private Demande demande;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -64,6 +68,19 @@ public class Demande_document implements Serializable {
 
     public void setDm_doc_type(String dm_doc_type) {
         this.dm_doc_type = dm_doc_type;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public Demande_document url(String url) {
+        this.url = url;
+        return this;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Demande getDemande() {
@@ -106,6 +123,7 @@ public class Demande_document implements Serializable {
             "id=" + getId() +
             ", dm_doc_libelle='" + getDm_doc_libelle() + "'" +
             ", dm_doc_type='" + getDm_doc_type() + "'" +
+            ", url='" + getUrl() + "'" +
             "}";
     }
 }

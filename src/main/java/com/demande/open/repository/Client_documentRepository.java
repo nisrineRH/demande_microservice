@@ -19,4 +19,14 @@ public interface Client_documentRepository extends JpaRepository<Client_document
     "LOWER (cd.doc_libelle) LIKE LOWER(CONCAT('%',:query,'%'))  ")
     Page<Client_document> getByLibDoc(@Param("query") String query, Pageable pageable);
 
+    @Query("SELECT cd FROM Client_document cd WHERE " +
+    "LOWER (cd.client.id) LIKE LOWER(CONCAT('%',:idClient,'%'))  ")
+    Page<Client_document> getByClient(@Param("idClient") Long idClient, Pageable pageable);
+
+    @Query("SELECT cd FROM Client_document cd WHERE " +
+    "LOWER(cd.category_document.id) LIKE LOWER(CONCAT('%',:id,'%'))  ")
+    Page<Client_document> getByCategory(@Param("id") Long id, Pageable pageable);
+
+
+
 }

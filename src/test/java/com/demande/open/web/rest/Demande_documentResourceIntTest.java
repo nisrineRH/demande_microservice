@@ -49,6 +49,9 @@ public class Demande_documentResourceIntTest {
     private static final String DEFAULT_DM_DOC_TYPE = "AAAAAAAAAA";
     private static final String UPDATED_DM_DOC_TYPE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_URL = "AAAAAAAAAA";
+    private static final String UPDATED_URL = "BBBBBBBBBB";
+
     @Autowired
     private Demande_documentRepository demande_documentRepository;
 
@@ -98,7 +101,8 @@ public class Demande_documentResourceIntTest {
     public static Demande_document createEntity(EntityManager em) {
         Demande_document demande_document = new Demande_document()
             .dm_doc_libelle(DEFAULT_DM_DOC_LIBELLE)
-            .dm_doc_type(DEFAULT_DM_DOC_TYPE);
+            .dm_doc_type(DEFAULT_DM_DOC_TYPE)
+            .url(DEFAULT_URL);
         return demande_document;
     }
 
@@ -125,6 +129,7 @@ public class Demande_documentResourceIntTest {
         Demande_document testDemande_document = demande_documentList.get(demande_documentList.size() - 1);
         assertThat(testDemande_document.getDm_doc_libelle()).isEqualTo(DEFAULT_DM_DOC_LIBELLE);
         assertThat(testDemande_document.getDm_doc_type()).isEqualTo(DEFAULT_DM_DOC_TYPE);
+        assertThat(testDemande_document.getUrl()).isEqualTo(DEFAULT_URL);
     }
 
     @Test
@@ -159,7 +164,8 @@ public class Demande_documentResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(demande_document.getId().intValue())))
             .andExpect(jsonPath("$.[*].dm_doc_libelle").value(hasItem(DEFAULT_DM_DOC_LIBELLE.toString())))
-            .andExpect(jsonPath("$.[*].dm_doc_type").value(hasItem(DEFAULT_DM_DOC_TYPE.toString())));
+            .andExpect(jsonPath("$.[*].dm_doc_type").value(hasItem(DEFAULT_DM_DOC_TYPE.toString())))
+            .andExpect(jsonPath("$.[*].url").value(hasItem(DEFAULT_URL.toString())));
     }
     
     @Test
@@ -174,7 +180,8 @@ public class Demande_documentResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(demande_document.getId().intValue()))
             .andExpect(jsonPath("$.dm_doc_libelle").value(DEFAULT_DM_DOC_LIBELLE.toString()))
-            .andExpect(jsonPath("$.dm_doc_type").value(DEFAULT_DM_DOC_TYPE.toString()));
+            .andExpect(jsonPath("$.dm_doc_type").value(DEFAULT_DM_DOC_TYPE.toString()))
+            .andExpect(jsonPath("$.url").value(DEFAULT_URL.toString()));
     }
 
     @Test
@@ -199,7 +206,8 @@ public class Demande_documentResourceIntTest {
         em.detach(updatedDemande_document);
         updatedDemande_document
             .dm_doc_libelle(UPDATED_DM_DOC_LIBELLE)
-            .dm_doc_type(UPDATED_DM_DOC_TYPE);
+            .dm_doc_type(UPDATED_DM_DOC_TYPE)
+            .url(UPDATED_URL);
         Demande_documentDTO demande_documentDTO = demande_documentMapper.toDto(updatedDemande_document);
 
         restDemande_documentMockMvc.perform(put("/api/demande-documents")
@@ -213,6 +221,7 @@ public class Demande_documentResourceIntTest {
         Demande_document testDemande_document = demande_documentList.get(demande_documentList.size() - 1);
         assertThat(testDemande_document.getDm_doc_libelle()).isEqualTo(UPDATED_DM_DOC_LIBELLE);
         assertThat(testDemande_document.getDm_doc_type()).isEqualTo(UPDATED_DM_DOC_TYPE);
+        assertThat(testDemande_document.getUrl()).isEqualTo(UPDATED_URL);
     }
 
     @Test

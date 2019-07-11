@@ -46,4 +46,22 @@ public interface Client_documentService {
 
 
     Page<Client_documentDTO> getByFields(String term, Pageable pageable);
+
+    /**
+     * Get Documents By ClientID
+     * @param idClient
+     * @param pageable
+     * @return
+     */
+    Page<Client_documentDTO> getByClient(Long idClient, Pageable pageable);
+
+
+    /**
+     * Get Documents By CategoryID
+     * @param id
+     * @param pageable
+     * @return
+     */
+
+    public Page<Client_documentDTO> getByCategory(Long id, Pageable pageable);
 }
