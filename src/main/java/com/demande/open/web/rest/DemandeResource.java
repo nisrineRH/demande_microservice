@@ -119,7 +119,7 @@ public class DemandeResource {
     }
 
     @GetMapping("/demandes/clients")
-    public ResponseEntity<List<DemandeDTO>> getAllClient_documentsByClient(@RequestParam Long param, Pageable pageable) {
+    public ResponseEntity<List<DemandeDTO>> getAllDemandeByClient(@RequestParam Long param, Pageable pageable) {
         log.debug("REST request to get a page of Demandes");
         Page<DemandeDTO> page = demandeService.getByClient(param,pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/demandes/clients");
