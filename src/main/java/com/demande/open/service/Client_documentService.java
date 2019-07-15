@@ -49,19 +49,18 @@ public interface Client_documentService {
 
     /**
      * Get Documents By ClientID
-     * @param idClient
+     * @param id
      * @param pageable
      * @return
      */
-    Page<Client_documentDTO> getByClient(Long idClient, Pageable pageable);
+    Page<Client_documentDTO> getByClient(Long id, Pageable pageable);
 
-
-    /**
+   /**
      * Get Documents By CategoryID
      * @param id
      * @param pageable
      * @return
      */
 
-    public Page<Client_documentDTO> getByCategory(Long id, Pageable pageable);
+    Page<Client_documentDTO> getByCategory(Long id, Pageable pageable);
 }

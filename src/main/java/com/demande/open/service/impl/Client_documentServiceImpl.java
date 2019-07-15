@@ -88,20 +88,21 @@ public class Client_documentServiceImpl implements Client_documentService {
     }
 
     @Override
-    public Page<Client_documentDTO> getByFields(String term, Pageable pageable){
+    public Page<Client_documentDTO> getByFields(String term, Pageable pageable) {
         log.debug(" Request to get all Client_document By Fields");
-        return client_documentRepository.getByLibDoc(term,pageable).map(client_documentMapper::toDto);
+        return client_documentRepository.getByLibDoc(term, pageable).map(client_documentMapper::toDto);
     }
 
     @Override
-    public Page<Client_documentDTO> getByClient(Long idClient, Pageable pageable) {
+    public Page<Client_documentDTO> getByClient(Long id, Pageable pageable) {
         log.debug(" Request to get all Client_document By ClientID");
-        return client_documentRepository.getByClient(idClient,pageable).map(client_documentMapper::toDto);
+        return client_documentRepository.getByClient(id, pageable).map(client_documentMapper::toDto);
     }
 
     @Override
     public Page<Client_documentDTO> getByCategory(Long id, Pageable pageable) {
         log.debug(" Request to get all Client_document By CategoryID");
-        return client_documentRepository.getByCategory(id,pageable).map(client_documentMapper::toDto);
+        return client_documentRepository.getByCategory(id, pageable).map(client_documentMapper::toDto);
     }
+
 }

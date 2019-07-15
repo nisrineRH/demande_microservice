@@ -86,4 +86,18 @@ public class DemandeServiceImpl implements DemandeService {
         log.debug("Request to delete Demande : {}", id);
         demandeRepository.deleteById(id);
     }
+
+    @Override
+    public Page<DemandeDTO> getByFields(String term, Pageable pageable) {
+        log.debug(" Request to get all Demande By Fields");
+        return demandeRepository.getByNumLibDM(term, pageable)
+            .map(demandeMapper::toDto);
+    }
+
+    @Override
+    public Page<DemandeDTO> getByClient(Long id, Pageable pageable) {
+        log.debug(" Request to get all Demande By ClientID");
+        return demandeRepository.getByClient(id, pageable).map(demandeMapper::toDto);
+    }
+
 }

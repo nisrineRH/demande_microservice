@@ -105,6 +105,29 @@ public class DemandeResource {
     }
 
     /**
+     * GET  /demandes : get all the demandes.
+     *
+     * @param String the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of demandes in body
+     */
+    @GetMapping("/demandes/search")
+    public ResponseEntity<List<DemandeDTO>> getAllDemandeByFields(@RequestParam String param, Pageable pageable) {
+        log.debug("REST request to get a page of Demandes");
+        Page<DemandeDTO> page = demandeService.getByFields(param,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/demandes/search");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/demandes/clients")
+    public ResponseEntity<List<DemandeDTO>> getAllClient_documentsByClient(@RequestParam Long param, Pageable pageable) {
+        log.debug("REST request to get a page of Demandes");
+        Page<DemandeDTO> page = demandeService.getByClient(param,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/demandes/clients");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+
+    /**
      * DELETE  /demandes/:id : delete the "id" demande.
      *
      * @param id the id of the demandeDTO to delete
