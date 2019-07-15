@@ -86,4 +86,10 @@ public class Demande_documentServiceImpl implements Demande_documentService {
         log.debug("Request to delete Demande_document : {}", id);
         demande_documentRepository.deleteById(id);
     }
+
+    @Override
+    public Page<Demande_documentDTO> getByDemande(Long id, Pageable pageable) {
+        log.debug(" Request to get all Demande_document By Demande");
+        return demande_documentRepository.getByDemande(id, pageable) .map(demande_documentMapper::toDto);
+    }
 }

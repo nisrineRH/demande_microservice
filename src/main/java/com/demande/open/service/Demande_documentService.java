@@ -1,5 +1,6 @@
 package com.demande.open.service;
 
+import com.demande.open.domain.Demande_document;
 import com.demande.open.service.dto.Demande_documentDTO;
 
 import org.springframework.data.domain.Page;
@@ -43,4 +44,6 @@ public interface Demande_documentService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    Page<Demande_documentDTO> getByDemande(Long id, Pageable pageable);
 }

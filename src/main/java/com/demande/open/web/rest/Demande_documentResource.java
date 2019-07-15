@@ -104,16 +104,24 @@ public class Demande_documentResource {
         return ResponseUtil.wrapOrNotFound(demande_documentDTO);
     }
 
-    /**
-     * DELETE  /demande-documents/:id : delete the "id" demande_document.
-     *
-     * @param id the id of the demande_documentDTO to delete
-     * @return the ResponseEntity with status 200 (OK)
-     */
-    @DeleteMapping("/demande-documents/{id}")
-    public ResponseEntity<Void> deleteDemande_document(@PathVariable Long id) {
-        log.debug("REST request to delete Demande_document : {}", id);
-        demande_documentService.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    @GetMapping("/demande-documents/demande")
+    public ResponseEntity<List<Demande_documentDTO>> getaLLDemande_documentByDemande(@RequestParam Long param, Pageable pageable) {
+        log.debug("REST request to get a page of Client_documents");
+        Page<Demande_documentDTO> page = demande_documentService.getByDemande(param, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/demande-documents/demande");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
-}
+
+        /**
+         * DELETE  /demande-documents/:id : delete the "id" demande_document.
+         *
+         * @param id the id of the demande_documentDTO to delete
+         * @return the ResponseEntity with status 200 (OK)
+         */
+        @DeleteMapping("/demande-documents/{id}")
+        public ResponseEntity<Void> deleteDemande_document (@PathVariable Long id){
+            log.debug("REST request to delete Demande_document : {}", id);
+            demande_documentService.delete(id);
+            return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+        }
+    }
