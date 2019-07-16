@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.event.HierarchyBoundsListener;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -110,6 +111,16 @@ public class HistouriqueStatutDemandeResource {
         Optional<HistouriqueStatutDemandeDTO> histouriqueStatutDemandeDTO = histouriqueStatutDemandeService.findOne(id);
         return ResponseUtil.wrapOrNotFound(histouriqueStatutDemandeDTO);
     }
+
+    @GetMapping("/histourique-statut-demandes/demande")
+    public ResponseEntity<List<HistouriqueStatutDemandeDTO>> getAllHSDByDM(@RequestParam Long param, Pageable pageable) {
+        log.debug("REST request to get a page of HistoriqueStatutDemande");
+        Page<HistouriqueStatutDemandeDTO> page = histouriqueStatutDemandeService.getHSDByDemande(param, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/histourique-statut-demandes/demande");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+
 
     /**
      * DELETE  /histourique-statut-demandes/:id : delete the "id" histouriqueStatutDemande.

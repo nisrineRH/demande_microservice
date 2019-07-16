@@ -105,4 +105,10 @@ public class HistouriqueStatutDemandeServiceImpl implements HistouriqueStatutDem
         log.debug("Request to delete HistouriqueStatutDemande : {}", id);
         histouriqueStatutDemandeRepository.deleteById(id);
     }
+
+    @Override
+    public Page<HistouriqueStatutDemandeDTO> getHSDByDemande(Long id, Pageable pageable) {
+        log.debug(" Request to get all Demande_document By HistouriqueStatutDemande");
+        return histouriqueStatutDemandeRepository.getHSDByDemande(id, pageable) .map(histouriqueStatutDemandeMapper::toDto);
+    }
 }

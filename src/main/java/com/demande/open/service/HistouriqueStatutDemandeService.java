@@ -50,4 +50,6 @@ public interface HistouriqueStatutDemandeService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+     Page<HistouriqueStatutDemandeDTO> getHSDByDemande(Long id, Pageable pageable);
 }
